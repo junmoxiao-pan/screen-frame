@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="科技感大屏背景框（下宽上窄直角梯形）">
+  <title>科技感大屏背景框（下宽上窄）</title>
+  <desc>16:9 大屏边框，下宽上窄的直角梯形：底边 880、顶边 500，右侧竖直边、右下角为直角，左侧为大斜边、左下角约 50 度，左上角小切角过渡。深色半透明渐变底板 + 青蓝渐变描边与外发光，四角角标，内层平行装饰线随斜边同步内缩。</desc>
+
+  <defs>
+    <!-- 描边渐变：青蓝 -> 亮蓝 -> 深蓝 -->
+    <linearGradient id="frameGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#22D3EE"/>
+      <stop offset="42%"  stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+
+    <!-- 底板渐变：深色半透明 -->
+    <linearGradient id="panelFill" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%"   stop-color="#0B2138" stop-opacity="0.92"/>
+      <stop offset="55%"  stop-color="#071A2E" stop-opacity="0.82"/>
+      <stop offset="100%" stop-color="#030C18" stop-opacity="0.94"/>
+    </linearGradient>
+
+    <!-- 中央柔光 -->
+    <radialGradient id="coreGlow" cx="50%" cy="42%" r="68%">
+      <stop offset="0%"   stop-color="#0EA5E9" stop-opacity="0.20"/>
+      <stop offset="60%"  stop-color="#0EA5E9" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 外发光 -->
+    <filter id="outerGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8"   result="wide"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="tight"/>
+      <feMerge>
+        <feMergeNode in="wide"/>
+        <feMergeNode in="tight"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 1. 深色半透明底板：底(40,500)->(920,500) 880；顶(420,40)->(920,40) 500；右侧竖直 -->
+  <path d="M450,40 H906 A14,14 0 0 1 920,54 V486 A14,14 0 0 1 906,500 H40 L400.93,63.09 Z"
+        fill="url(#panelFill)" />
+
+  <!-- 2. 中央柔光叠加 -->
+  <path d="M450,40 H906 A14,14 0 0 1 920,54 V486 A14,14 0 0 1 906,500 H40 L400.93,63.09 Z"
+        fill="url(#coreGlow)" />
+
+  <!-- 3. 渐变描边 + 外发光 -->
+  <path d="M450,40 H906 A14,14 0 0 1 920,54 V486 A14,14 0 0 1 906,500 H40 L400.93,63.09 Z"
+        fill="none" stroke="url(#frameGrad)" stroke-width="3"
+        stroke-linejoin="round" filter="url(#outerGlow)" />
+
+  <!-- 4. 内层平行装饰线（随斜边同步内缩，含左上切角内缩） -->
+  <path d="M452.24,50 H898 A12,12 0 0 1 910,62 V478 A12,12 0 0 1 898,490 H61.23 L407.10,71.24 Z"
+        fill="none" stroke="#67E8F9" stroke-width="1.4" stroke-opacity="0.45" />
+
+  <!-- 5. 四角 L 形角标 -->
+  <g fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 右上 -->
+    <path d="M942,86 V20 H874"/>
+    <!-- 右下 -->
+    <path d="M942,520 V454 H874"/>
+    <!-- 左上（沿切角方向） -->
+    <path d="M500,22 H438 L383.7,47.6"/>
+    <!-- 左下（沿斜边方向） -->
+    <path d="M66,518 L14,518 L58.5,464.1"/>
+  </g>
+
+  <!-- 6. 装饰性折线 -->
+  <g fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.6">
+    <!-- 右上内折线 -->
+    <path d="M920,150 H886 V116 H852"/>
+    <!-- 右下斜切点缀 -->
+    <path d="M904,472 L904,448 L880,448"/>
+  </g>
+
+  <!-- 7. 右侧刻度短线 -->
+  <g fill="none" stroke="#22D3EE" stroke-width="2" stroke-opacity="0.5" stroke-linecap="round">
+    <path d="M920,200 H938"/>
+    <path d="M920,270 H938"/>
+    <path d="M920,340 H938"/>
+  </g>
+</svg>
